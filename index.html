@@ -706,7 +706,6 @@
         <span class="amp">&amp;</span>
         <span class="name">Srineetha</span>
       </h1>
-      <p class="hero-subtitle">With the blessings of our families, we invite you to join us as we begin our journey together.</p>
     </div>
   </header>
 
@@ -754,7 +753,6 @@
           </div>
 
           <article class="event-card">
-            <h3>Mehendi &amp; Sangeeth</h3>
             <p class="event-meta">14 August 2026 · 6:00 PM onwards</p>
             <ul class="detail-list">
               <li><span aria-hidden="true">📍</span><span><strong>Vidaan D Royal</strong>, Vijayawada</span></li>
@@ -762,7 +760,7 @@
               <li><span aria-hidden="true">🍽️</span><span>Drinks and dinner</span></li>
             </ul>
             <div class="button-row">
-              <a class="btn btn-primary" href="https://www.google.com/maps/place/Vidhaan+D+Royal+Banquets+function+hall/data=!4m2!3m1!1s0x0:0x981397f48c70e380?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener noreferrer">Open Map</a>
+              <a class="btn btn-primary" href="https://www.google.com/maps/place/Vidhaan+D+Royal+Banquets+function+hall/data=!4m2!3m1!1s0x0:0x981397f48c70e380?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener noreferrer">Open in Maps</a>
             </div>
           </article>
         </div>
@@ -781,7 +779,6 @@
           </div>
 
           <article class="event-card">
-            <h3>Haldi</h3>
             <p class="event-meta">15 August 2026 · 10:00 AM</p>
             <ul class="detail-list">
               <li><span aria-hidden="true">📍</span><span><strong>Bala Farm House</strong>, Krishna Dist</span></li>
@@ -789,7 +786,7 @@
               <li><span aria-hidden="true">🍽️</span><span>Lunch to follow</span></li>
             </ul>
             <div class="button-row">
-              <a class="btn btn-primary" href="https://maps.app.goo.gl/diGeDLpFHroKxpo19" target="_blank" rel="noopener noreferrer">Open Map</a>
+              <a class="btn btn-primary" href="https://maps.app.goo.gl/diGeDLpFHroKxpo19" target="_blank" rel="noopener noreferrer">Open in Maps</a>
             </div>
           </article>
         </div>
@@ -808,7 +805,6 @@
 
         <div class="wedding-panel">
           <article class="event-card">
-            <h3>Wedding</h3>
             <p class="event-meta">16 August 2026 · Meet &amp; greet from 7:00 PM</p>
             <ul class="detail-list">
               <li><span aria-hidden="true">📍</span><span><strong>Sarada Grandeur</strong>, Challapalli</span></li>
@@ -817,18 +813,16 @@
               <li><span aria-hidden="true">🍽️</span><span>Dinner to follow</span></li>
             </ul>
             <div class="button-row">
-              <a class="btn btn-primary" href="https://maps.app.goo.gl/SEJ7UBtxFrW9NTne6" target="_blank" rel="noopener noreferrer">Open Map</a>
+              <a class="btn btn-primary" href="https://maps.app.goo.gl/SEJ7UBtxFrW9NTne6" target="_blank" rel="noopener noreferrer">Open in Maps</a>
             </div>
           </article>
 
           <article class="live-card">
             <h3>Live</h3>
-            <p class="event-meta">YouTube Live link to be updated</p>
             <div id="wedding-live-video" class="live-shell">
               <div class="live-placeholder">
                 <div>
-                  <strong>Live Link: To Be Updated</strong>
-                  <span>This reserved box will expand into the YouTube player once the live link is added.</span>
+                  <strong>To Be Updated</strong>
                 </div>
               </div>
             </div>
@@ -857,7 +851,7 @@
               <li><span aria-hidden="true">🙏</span><span>Seeking divine blessings for the couple</span></li>
             </ul>
             <div class="button-row">
-              <a class="btn btn-gold" href="https://maps.app.goo.gl/TTjzcsTg1x4mejHC8" target="_blank" rel="noopener noreferrer">Open Residence Map</a>
+              <a class="btn btn-gold" href="https://maps.app.goo.gl/TTjzcsTg1x4mejHC8" target="_blank" rel="noopener noreferrer">Open in Maps</a>
             </div>
           </article>
 
@@ -870,7 +864,7 @@
               <li><span aria-hidden="true">🍽️</span><span>Reception followed by lunch</span></li>
             </ul>
             <div class="button-row">
-              <a class="btn btn-primary" href="https://maps.app.goo.gl/fSJVHJfUTxATJiu4A" target="_blank" rel="noopener noreferrer">Open Reception Map</a>
+              <a class="btn btn-primary" href="https://maps.app.goo.gl/fSJVHJfUTxATJiu4A" target="_blank" rel="noopener noreferrer">Open in Maps</a>
             </div>
           </article>
         </div>
@@ -899,7 +893,7 @@
       The reserved box will automatically become a full YouTube player.
     */
     const VIDEO_CONFIG = {
-      weddingLive: ""
+      weddingLive: "Youtube"
     };
 
     const targetTime = new Date(WEDDING_DATE_UTC).getTime();
@@ -943,7 +937,7 @@
       fields.minutes.textContent = pad(minutes);
       fields.seconds.textContent = pad(seconds);
       fields.message.textContent =
-        "Countdown target: 16 August 2026, 11:24 PM IST. In your local timezone: " + localTarget + ".";
+        "In your local timezone: " + localTarget + ".";
     }
 
     function extractYouTubeId(input) {
