@@ -44,6 +44,16 @@
       font-display: block;
     }
 
+    @font-face {
+      font-family: "Glyphicons Halflings";
+      src: url("https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.woff2") format("woff2"),
+           url("https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.woff") format("woff"),
+           url("https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+    }
+
     :root {
       --cream: #fff7ea;
       --cream-strong: #fff1da;
@@ -144,12 +154,22 @@
       text-underline-offset: 4px;
     }
 
-    .external-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9em;
+    .glyphicon {
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      font-family: "Glyphicons Halflings";
+      font-style: normal;
+      font-weight: normal;
       line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .external-icon {
+      margin-left: 4px;
+      font-size: 0.82em;
+      text-decoration: none;
       transform: translateY(-1px);
     }
 
@@ -656,8 +676,19 @@
         padding-top: calc(var(--nav-height) + 22px);
       }
 
+      .hero-content {
+        transform: translateY(-10svh);
+      }
+
       .name {
         font-size: clamp(4.1rem, 18vw, 6.4rem);
+      }
+
+      .amp {
+        font-family: "Hello Paris", "Brush Script MT", "Lucida Handwriting", cursive;
+        font-size: clamp(2.7rem, 12vw, 4.4rem);
+        transform: translateY(50%);
+        margin: -0.25em 0 -0.05em;
       }
 
       .script-title {
@@ -745,15 +776,14 @@
           <div class="event-copy">
             <p class="event-kicker">A little mehendi, a little music and a lot of love celebrating</p>
             <h2 class="script-title">Mehendi &amp; Sangeeth</h2>
+            <p class="event-description">
+              Join us for an evening of masti, melodies with drinks and dinner.
+            </p>
           </div>
-
           <article class="event-card">
-            <h3>Mehendi &amp; Sangeeth</h3>
-            <p class="event-meta">14 August 2026 · 6:00 PM onwards</p>
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://www.google.com/maps/place/Vidhaan+D+Royal+Banquets+function+hall/data=!4m2!3m1!1s0x0:0x981397f48c70e380?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener noreferrer"><a class="venue-link" href="https://www.google.com/maps/place/Vidhaan+D+Royal+Banquets+function+hall/data=!4m2!3m1!1s0x0:0x981397f48c70e380?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener noreferrer"><strong>Vidhaan D Royal</strong>, Vijayawada <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a> <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
-              <li><span aria-hidden="true">🕕</span><span>6:00 PM onwards</span></li>
-              <li><span aria-hidden="true">🍽️</span><span>Drinks and dinner</span></li>
+              <li><span aria-hidden="true">🕕</span><span><strong>14 August 2026 · 6:00 PM onwards</strong> </span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://www.google.com/maps/place/Vidhaan+D+Royal+Banquets+function+hall/data=!4m2!3m1!1s0x0:0x981397f48c70e380?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener noreferrer"><strong>Vidhaan D Royal</strong>, Vijayawada <span class="glyphicon external-icon" aria-hidden="true">&#xe164;</span><span class="sr-only">opens in a new tab</span></a></span></li>
             </ul>
           </article>
         </div>
@@ -772,12 +802,9 @@
           </div>
 
           <article class="event-card">
-            <h3>Haldi</h3>
-            <p class="event-meta">15 August 2026 · 10:00 AM</p>
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/diGeDLpFHroKxpo19" target="_blank" rel="noopener noreferrer"><strong>Bala Farm House</strong>, Krishna Dist <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
-              <li><span aria-hidden="true">🕙</span><span>10:00 AM</span></li>
-              <li><span aria-hidden="true">🍽️</span><span>Lunch to follow</span></li>
+              <li><span aria-hidden="true">🕙</span><span><strong> 15 August 2026 ·  10:00 AM </strong> </span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/diGeDLpFHroKxpo19" target="_blank" rel="noopener noreferrer"><strong>Bala Farm House</strong>, Krishna Dist <span class="glyphicon external-icon" aria-hidden="true">&#xe164;</span><span class="sr-only">opens in a new tab</span></a></span></li>
             </ul>
           </article>
         </div>
@@ -794,19 +821,17 @@
         <div class="wedding-panel">
           <article class="event-card">
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/SEJ7UBtxFrW9NTne6" target="_blank" rel="noopener noreferrer"><strong>Sarada Grandeur</strong>, Challapalli <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
-              <li><span aria-hidden="true">🙏</span><span><strong>Muhurtham:</strong> 11:24 PM IST</span></li>
-              <li><span aria-hidden="true">🤝</span><span>Meet and greet from 7:00 PM</span></li>
-              <li><span aria-hidden="true">🍽️</span><span>Dinner to follow</span></li>
+              <li><span aria-hidden="true">🕕</span><span><strong>Muhurtham: 16 August 2026 · 11:24 PM IST</strong> </span></li>
+              <li><span aria-hidden="true">🤝</span><span> <strong>Meet and greet from 7:00 PM followed by dinner</strong></span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/SEJ7UBtxFrW9NTne6" target="_blank" rel="noopener noreferrer"><strong>Sarada Grandeur</strong>, Challapalli <span class="glyphicon external-icon" aria-hidden="true">&#xe164;</span><span class="sr-only">opens in a new tab</span></a></span></li>
             </ul>
           </article>
 
           <article class="live-card">
-            <h3>Live: </h3>
             <div id="wedding-live-video" class="live-shell">
               <div class="live-placeholder">
                 <div>
-                  <strong>To Be Updated</strong>
+                  <strong>Live: To Be Updated</strong>
                 </div>
               </div>
             </div>
@@ -828,21 +853,17 @@
         <div class="reception-layout">
           <article class="event-card">
             <h3>Sri Sathyanarayana Swamy Vratham</h3>
-            <p class="event-meta">17 August 2026 · 7:00 AM onwards</p>
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/TTjzcsTg1x4mejHC8" target="_blank" rel="noopener noreferrer"><strong>Our Residence</strong> <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
-              <li><span aria-hidden="true">🕖</span><span>7:00 AM onwards</span></li>
-              <li><span aria-hidden="true">🙏</span><span>Seeking divine blessings for the couple</span></li>
+              <li><span aria-hidden="true">🕖</span><span><strong>17 August 2026 · 7:00 AM onwards</strong></span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/TTjzcsTg1x4mejHC8" target="_blank" rel="noopener noreferrer"><strong>Our Residence</strong> <span class="glyphicon external-icon" aria-hidden="true">&#xe164;</span><span class="sr-only">opens in a new tab</span></a></span></li>
             </ul>
           </article>
 
           <article class="event-card">
             <h3>Reception &amp; Lunch</h3>
-            <p class="event-meta">17 August 2026 · 11:00 AM onwards</p>
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/fSJVHJfUTxATJiu4A" target="_blank" rel="noopener noreferrer"><strong>Aahawanam Kalayana Mandapam</strong>, Kanaru <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
-              <li><span aria-hidden="true">🕚</span><span>11:00 AM onwards</span></li>
-              <li><span aria-hidden="true">🍽️</span><span>Reception followed by lunch</span></li>
+              <li><span aria-hidden="true">🕚</span><span><strong>17 August 2026 · 11:00 AM onwards</strong></span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/fSJVHJfUTxATJiu4A" target="_blank" rel="noopener noreferrer"><strong>Aahawanam Kalayana Mandapam</strong>, Kanaru <span class="glyphicon external-icon" aria-hidden="true">&#xe164;</span><span class="sr-only">opens in a new tab</span></a></span></li>
             </ul>
           </article>
         </div>
