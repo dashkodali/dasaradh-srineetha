@@ -9,6 +9,9 @@
 
   <link rel="icon" type="image/png" href="images/monogram.png">
   <link rel="apple-touch-icon" href="images/monogram.png">
+  <!-- Preload the display font to prevent the fallback-font flash before Hello Paris loads. -->
+  <link rel="preload" href="fonts/HelloParisSerif-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/HelloParis-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
   <meta name="description" content="Join Dasaradh and Srineetha for their wedding celebrations in Vijayawada, Krishna District and Challapalli." />
   <meta name="keywords" content="Dasaradh, Srineetha, wedding, invitation, Vijayawada, Challapalli, reception" />
@@ -38,7 +41,7 @@
         url("fonts/HelloParis-Regular.ttf") format("truetype");
       font-weight: normal;
       font-style: normal;
-      font-display: swap;
+      font-display: block;
     }
 
     :root {
@@ -100,6 +103,54 @@
 
     a {
       color: inherit;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .map-link {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--maroon);
+      font-weight: 900;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+    }
+
+    .map-link:hover,
+    .venue-link:hover {
+      color: #922642;
+      text-decoration-thickness: 2px;
+    }
+
+    .venue-link {
+      color: var(--maroon);
+      font-weight: 900;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+    }
+
+    .external-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9em;
+      line-height: 1;
+      transform: translateY(-1px);
     }
 
     .nav {
@@ -242,8 +293,8 @@
 
     section {
       position: relative;
-      padding: clamp(70px, 10vw, 124px) 20px;
-      scroll-margin-top: 120px;
+      padding: clamp(64px, 8vw, 108px) 20px;
+      scroll-margin-top: calc(var(--nav-height) + 12px);
     }
 
     .container {
@@ -344,9 +395,10 @@
     }
 
     .event-section {
-      min-height: 100svh;
-      display: grid;
-      align-items: center;
+      min-height: auto;
+      display: block;
+      padding-top: clamp(44px, 5vw, 72px);
+      padding-bottom: clamp(58px, 7vw, 96px);
       background:
         radial-gradient(circle at 12% 12%, rgba(214, 168, 74, 0.18), transparent 28rem),
         linear-gradient(180deg, #fff8ee 0%, #fff1dc 100%);
@@ -372,11 +424,11 @@
     .event-copy.center-copy {
       text-align: center;
       max-width: 900px;
-      margin: 0 auto 34px;
+      margin: 0 auto 24px;
     }
 
     .event-kicker {
-      margin: 0 0 18px;
+      margin: 0 0 12px;
       max-width: 780px;
       color: var(--gold-dark);
       letter-spacing: 0.12em;
@@ -386,7 +438,7 @@
     }
 
     .event-copy .script-title {
-      margin: 0 0 22px;
+      margin: 0 0 16px;
     }
 
     .event-description {
@@ -456,44 +508,6 @@
       color: var(--text);
     }
 
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .btn {
-      position: relative;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 46px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      text-decoration: none;
-      font-weight: 900;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--maroon), #922642);
-      color: #fff;
-      box-shadow: 0 14px 30px rgba(117, 20, 38, 0.2);
-    }
-
-    .btn-gold {
-      background: linear-gradient(135deg, #ffe2a5, #c9912e);
-      color: #4a2814;
-      box-shadow: 0 12px 30px rgba(75, 35, 12, 0.14);
-    }
 
     .wedding-panel {
       display: grid;
@@ -630,7 +644,12 @@
 
     @media (max-width: 640px) {
       section {
-        scroll-margin-top: 150px;
+        scroll-margin-top: calc(var(--nav-height) + 8px);
+      }
+
+      .event-section {
+        padding-top: 34px;
+        padding-bottom: 58px;
       }
 
       .hero {
@@ -655,14 +674,6 @@
         border-radius: 24px;
       }
 
-      .button-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
 
       .live-shell {
         min-height: 128px;
@@ -694,7 +705,6 @@
         <span class="amp">&amp;</span>
         <span class="name">Srineetha</span>
       </h1>
-      <p class="hero-subtitle">With the blessings of our families, we invite you to join us as we begin our journey together.</p>
     </div>
   </header>
 
@@ -725,7 +735,6 @@
         </div>
 
         <p id="countdown-message" class="timezone-note">
-          Countdown target: 16 August 2026, 11:24 PM Indian Standard Time.
         </p>
       </div>
     </section>
@@ -736,22 +745,16 @@
           <div class="event-copy">
             <p class="event-kicker">A little mehendi, a little music and a lot of love celebrating</p>
             <h2 class="script-title">Mehendi &amp; Sangeeth</h2>
-            <p class="event-description">
-              Join us for an evening of masti, melodies with drinks and dinner.
-            </p>
           </div>
 
           <article class="event-card">
             <h3>Mehendi &amp; Sangeeth</h3>
             <p class="event-meta">14 August 2026 · 6:00 PM onwards</p>
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><strong>Vidaan D Royal</strong>, Vijayawada</span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://www.google.com/maps/place/Vidhaan+D+Royal+Banquets+function+hall/data=!4m2!3m1!1s0x0:0x981397f48c70e380?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener noreferrer"><a class="venue-link" href="https://www.google.com/maps/place/Vidhaan+D+Royal+Banquets+function+hall/data=!4m2!3m1!1s0x0:0x981397f48c70e380?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener noreferrer"><strong>Vidhaan D Royal</strong>, Vijayawada <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a> <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
               <li><span aria-hidden="true">🕕</span><span>6:00 PM onwards</span></li>
               <li><span aria-hidden="true">🍽️</span><span>Drinks and dinner</span></li>
             </ul>
-            <div class="button-row">
-              <a class="btn btn-primary" href="https://www.google.com/maps/place/Vidhaan+D+Royal+Banquets+function+hall/data=!4m2!3m1!1s0x0:0x981397f48c70e380?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener noreferrer">Open Map</a>
-            </div>
           </article>
         </div>
       </div>
@@ -772,13 +775,10 @@
             <h3>Haldi</h3>
             <p class="event-meta">15 August 2026 · 10:00 AM</p>
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><strong>Bala Farm House</strong>, Krishna Dist</span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/diGeDLpFHroKxpo19" target="_blank" rel="noopener noreferrer"><strong>Bala Farm House</strong>, Krishna Dist <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
               <li><span aria-hidden="true">🕙</span><span>10:00 AM</span></li>
               <li><span aria-hidden="true">🍽️</span><span>Lunch to follow</span></li>
             </ul>
-            <div class="button-row">
-              <a class="btn btn-primary" href="https://maps.app.goo.gl/diGeDLpFHroKxpo19" target="_blank" rel="noopener noreferrer">Open Map</a>
-            </div>
           </article>
         </div>
       </div>
@@ -789,34 +789,24 @@
         <div class="event-copy center-copy">
           <p class="event-kicker">Come witness and bless the couple as they unite in a promise of love, harmony and togetherness for seven lifetimes at their</p>
           <h2 class="script-title">Wedding</h2>
-          <p class="event-description">
-            Muhurtham: <strong>11:24 PM</strong>
-          </p>
         </div>
 
         <div class="wedding-panel">
           <article class="event-card">
-            <h3>Wedding</h3>
-            <p class="event-meta">16 August 2026 · Meet &amp; greet from 7:00 PM</p>
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><strong>Sarada Grandeur</strong>, Challapalli</span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/SEJ7UBtxFrW9NTne6" target="_blank" rel="noopener noreferrer"><strong>Sarada Grandeur</strong>, Challapalli <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
               <li><span aria-hidden="true">🙏</span><span><strong>Muhurtham:</strong> 11:24 PM IST</span></li>
               <li><span aria-hidden="true">🤝</span><span>Meet and greet from 7:00 PM</span></li>
               <li><span aria-hidden="true">🍽️</span><span>Dinner to follow</span></li>
             </ul>
-            <div class="button-row">
-              <a class="btn btn-primary" href="https://maps.app.goo.gl/SEJ7UBtxFrW9NTne6" target="_blank" rel="noopener noreferrer">Open Map</a>
-            </div>
           </article>
 
           <article class="live-card">
-            <h3>Live</h3>
-            <p class="event-meta">YouTube Live link to be updated</p>
+            <h3>Live: </h3>
             <div id="wedding-live-video" class="live-shell">
               <div class="live-placeholder">
                 <div>
-                  <strong>Live Link: To Be Updated</strong>
-                  <span>This reserved box will expand into the YouTube player once the live link is added.</span>
+                  <strong>To Be Updated</strong>
                 </div>
               </div>
             </div>
@@ -840,26 +830,20 @@
             <h3>Sri Sathyanarayana Swamy Vratham</h3>
             <p class="event-meta">17 August 2026 · 7:00 AM onwards</p>
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><strong>Our Residence</strong></span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/TTjzcsTg1x4mejHC8" target="_blank" rel="noopener noreferrer"><strong>Our Residence</strong> <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
               <li><span aria-hidden="true">🕖</span><span>7:00 AM onwards</span></li>
               <li><span aria-hidden="true">🙏</span><span>Seeking divine blessings for the couple</span></li>
             </ul>
-            <div class="button-row">
-              <a class="btn btn-gold" href="https://maps.app.goo.gl/TTjzcsTg1x4mejHC8" target="_blank" rel="noopener noreferrer">Open Residence Map</a>
-            </div>
           </article>
 
           <article class="event-card">
             <h3>Reception &amp; Lunch</h3>
             <p class="event-meta">17 August 2026 · 11:00 AM onwards</p>
             <ul class="detail-list">
-              <li><span aria-hidden="true">📍</span><span><strong>Aahawanam Kalayana Mandapam</strong>, Kanaru</span></li>
+              <li><span aria-hidden="true">📍</span><span><a class="venue-link" href="https://maps.app.goo.gl/fSJVHJfUTxATJiu4A" target="_blank" rel="noopener noreferrer"><strong>Aahawanam Kalayana Mandapam</strong>, Kanaru <span class="external-icon" aria-hidden="true">↗</span><span class="sr-only">opens in a new tab</span></a></span></li>
               <li><span aria-hidden="true">🕚</span><span>11:00 AM onwards</span></li>
               <li><span aria-hidden="true">🍽️</span><span>Reception followed by lunch</span></li>
             </ul>
-            <div class="button-row">
-              <a class="btn btn-primary" href="https://maps.app.goo.gl/fSJVHJfUTxATJiu4A" target="_blank" rel="noopener noreferrer">Open Reception Map</a>
-            </div>
           </article>
         </div>
       </div>
@@ -931,7 +915,7 @@
       fields.minutes.textContent = pad(minutes);
       fields.seconds.textContent = pad(seconds);
       fields.message.textContent =
-        "Countdown target: 16 August 2026, 11:24 PM IST. In your local timezone: " + localTarget + ".";
+        "In your local timezone: " + localTarget + ".";
     }
 
     function extractYouTubeId(input) {
